@@ -15,20 +15,18 @@ Le spectre d'utilisation est large. Vous devriez envisager de lancer l'outil si 
 
 ---
 
-## ⚙️ Fonctionnement de la réparation automatique
+#### ⚙️ Fonctionnement de la réparation automatique
+Dès le démarrage, le logiciel effectue une vérification de la connexion internet pour déterminer s'il peut effectuer la réparation en ligne. Si aucune connexion n'est détectée, il vous proposera de passer par un fichier ISO. Vous avez également la possibilité de choisir manuellement l'option ISO dès le départ. Une fois l'ISO sélectionné, le logiciel s'occupe de le monter tout seul et utilise automatiquement le chemin nécessaire pour effectuer la réparation hors ligne.
 
-Dès le démarrage, le logiciel effectue une vérification de la connexion internet pour déterminer s'il peut effectuer la réparation en ligne. Si aucune connexion n'est détectée, il vous proposera de passer par un **fichier ISO**. 
+Le processus se déroule en plusieurs étapes clés :
 
-Le logiciel s'occupe de monter l'ISO tout seul et utilise automatiquement le chemin nécessaire pour effectuer la réparation hors ligne. Le processus se déroule en plusieurs étapes clés :
+* **Vérification du disque (CHKDSK) :** L'outil lance d'abord un CHKDSK en lecture seule. Si des erreurs sont détectées, une fenêtre vous demandera si vous souhaitez effectuer un CHKDSK /R /F. Cette action nécessite un redémarrage. Une fois la réparation du disque terminée au reboot, vous pourrez relancer l'application pour poursuivre le processus. (Ignorer cette étape est déconseillé pour une réussite optimale).
+* **Analyse de l'image (DISM ScanHealth) :** Le logiciel exécute ensuite la commande DISM /Online /Cleanup-Image /ScanHealth pour détecter d'éventuelles corruptions de l'image système.
+* **Réparation de l'image (DISM RestoreHealth) :** Si une erreur est détectée, la commande RestoreHealth est lancée pour réparer les fichiers corrompus en téléchargeant des fichiers sains via Windows Update (ou via l'ISO sélectionné).
+* **Vérification de l'intégrité (SFC Scannow) :** Une fois l'image système réparée, le logiciel lance SFC /scannow pour vérifier et réparer les fichiers système en s'appuyant sur l'image désormais saine.
+* **Nettoyage final :** Pour terminer, la commande DISM /Online /Cleanup-Image /StartComponentCleanup nettoie le magasin de composants WinSxS en supprimant les versions obsolètes des mises à jour.
 
-1. **Vérification du disque (CHKDSK) :** Lancement d'un CHKDSK en lecture seule. Si des erreurs sont détectées, une fenêtre propose d'effectuer un `CHKDSK /R /F` (nécessite un redémarrage).
-2. **Analyse de l'image (DISM ScanHealth) :** Exécution de la commande pour détecter d'éventuelles corruptions de l'image système.
-3. **Réparation de l'image (DISM RestoreHealth) :** Réparation des fichiers via Windows Update ou l'ISO sélectionné.
-4. **Vérification de l'intégrité (SFC Scannow) :** Vérification et réparation des fichiers système en s'appuyant sur l'image saine.
-5. **Nettoyage final :** Nettoyage du magasin de composants **WinSxS** (`StartComponentCleanup`) pour supprimer les versions obsolètes.
-
-À la fin du processus, un rapport complet s'affiche avec le temps écoulé et une recommandation de redémarrage.
-
+À la fin du processus, un rapport s'affiche pour indiquer si tout s'est bien passé ainsi que le temps écoulé. Une fenêtre vous recommandera alors de redémarrer le PC.
 ---
 
 ## 🛠️ Outils individuels pour les experts
