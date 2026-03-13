@@ -20,11 +20,11 @@ Dès le démarrage, le logiciel effectue une vérification de la connexion inter
 
 Le processus se déroule en plusieurs étapes clés :
 
-* **Vérification du disque (CHKDSK) :** L'outil lance d'abord un CHKDSK en lecture seule. Si des erreurs sont détectées, une fenêtre vous demandera si vous souhaitez effectuer un CHKDSK /R /F. Cette action nécessite un redémarrage. Une fois la réparation du disque terminée au reboot, vous pourrez relancer l'application pour poursuivre le processus. (Ignorer cette étape est déconseillé pour une réussite optimale).
-* **Analyse de l'image (DISM ScanHealth) :** Le logiciel exécute ensuite la commande DISM /Online /Cleanup-Image /ScanHealth pour détecter d'éventuelles corruptions de l'image système.
+* **Vérification du disque (CHKDSK) :** L'outil lance d'abord un CHKDSK en lecture seule. Si des erreurs sont détectées, une fenêtre vous demandera si vous souhaitez effectuer un `CHKDSK /R /F`. Cette action nécessite un redémarrage. Une fois la réparation du disque terminée au reboot, vous pourrez relancer l'application pour poursuivre le processus. (Ignorer cette étape est déconseillé pour une réussite optimale).
+* **Analyse de l'image (DISM ScanHealth) :** Le logiciel exécute ensuite la commande `DISM /Online /Cleanup-Image /ScanHealth` pour détecter d'éventuelles corruptions de l'image système.
 * **Réparation de l'image (DISM RestoreHealth) :** Si une erreur est détectée, la commande RestoreHealth est lancée pour réparer les fichiers corrompus en téléchargeant des fichiers sains via Windows Update (ou via l'ISO sélectionné).
-* **Vérification de l'intégrité (SFC Scannow) :** Une fois l'image système réparée, le logiciel lance SFC /scannow pour vérifier et réparer les fichiers système en s'appuyant sur l'image désormais saine.
-* **Nettoyage final :** Pour terminer, la commande DISM /Online /Cleanup-Image /StartComponentCleanup nettoie le magasin de composants WinSxS en supprimant les versions obsolètes des mises à jour.
+* **Vérification de l'intégrité (SFC Scannow) :** Une fois l'image système réparée, le logiciel lance `SFC /scannow` pour vérifier et réparer les fichiers système en s'appuyant sur l'image désormais saine.
+* **Nettoyage final :** Pour terminer, la commande `DISM /Online /Cleanup-Image /StartComponentCleanup nettoie` le magasin de composants WinSxS en supprimant les versions obsolètes des mises à jour.
 
 À la fin du processus, un rapport s'affiche pour indiquer si tout s'est bien passé ainsi que le temps écoulé. Une fenêtre vous recommandera alors de redémarrer le PC.
 ---
