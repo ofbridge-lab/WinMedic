@@ -1,7 +1,10 @@
 # WinMedic
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8B6Xytv7jDn8Ul8bG30rIa1rMyZK6THFfXYqdd1HCfML7M-fDoxb9s389keG2OuAe-IGNON1gBOXiHzleeqK0-CJLgl-Ned5mrVAWgA90o7c-KdX4KTpedxYEdAWVRbTiZofS1ich_d7XVSFhNJoqasaqt4DoMSaaOxSB9m_ox_kPjIH5gany8QK9E8nn/s256/Winmedic.png" width="100" alt="Winmedic Logo">
 
 **WinMedic** est un outil de réparation automatisée pour Windows conçu pour simplifier au maximum la restauration du système. 
 Contrairement à des outils comme *DISM GUI* qui sont des interfaces manuelles, WinMedic orchestre intelligemment les commandes de réparation dans l'ordre logique pour garantir un résultat optimal.
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjw5WcszSeX1z3FOc3Dv8oBJxeFXD2J0wz39p3vTSvmcU4GWUV16veRgciSFzCNlb77LOcbIwBd0pkqVAHRbo0Oq6NBmJ0b6YxncULy-yCzllLjB6L4EYJDJKRpKSDeBDkVyWf8UcQwdDGQ0JMdh0vpSO2aaC0_UZIwjpn2tYKV0P-lig3i7TZxbej6aBPc/s983/Capture%201.png" width="50%" alt="Capture d'écran de l'interface">
 
 ##  Dans quels cas utiliser WinMedic
 
@@ -27,11 +30,13 @@ Le processus se déroule en plusieurs étapes clés :
 * **Nettoyage final :** Pour terminer, la commande `DISM /Online /Cleanup-Image /StartComponentCleanup nettoie` le magasin de composants WinSxS en supprimant les versions obsolètes des mises à jour.
 
 À la fin du processus, un rapport s'affiche pour indiquer si tout s'est bien passé ainsi que le temps écoulé. Une fenêtre vous recommandera alors de redémarrer le PC.
----
+
 
 ## 🛠️ Outils individuels pour les experts
 
 Pour les utilisateurs avancés, l'onglet **"Outils individuels"** permet de lancer chaque commande de manière isolée :
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6th-DypBQggTDWZLu02wJHZbizFL4GiliflbfxPEcnmP9QRAaOJaH3yOAD9Fo9HQm-WZc0jnGm_T2AZuSy_NJ-rmSo8WEs0qdHcUYDMsnzpph3Httb1I8akbmqS029kUyRXWQxU4p9AQUTfVmmhDcg2qw-DYDGxbb8UQmlb_fkHJSfspUWkqvJLOfSx66/s983/Capture%20d'%C3%A9cran%202026-03-11%20183557.png" width="50%">
 
 | Commande | Rôle et Action |
 | :--- | :--- |
